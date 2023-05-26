@@ -1,9 +1,13 @@
 import './App.css';
+import Form from './components/Form';
 
 function App() {
   return (
     <div className="App">
-      <h1>This is my first react project</h1>
+      <header>
+        <h1>TO DO LIST</h1>
+      </header>
+      <Form/>
     </div>
   );
 }
