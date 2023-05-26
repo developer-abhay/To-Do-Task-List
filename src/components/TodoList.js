@@ -7,10 +7,13 @@ export default function TodoList(props) {
   return (
     <div className="todo-container">
       <ul className="todo-list">
-        {props.listItem.map((element) => (
+        {props.listItem.map((task) => (
           <Todo
-            text={element.text}
-            key={element.id}
+            text={task.text}
+            key={task.id}
+            task={task}
+            listItem={props.listItem} 
+            setListItem={props.setListItem}
           />
         ))}
       </ul>
