@@ -1,11 +1,30 @@
-import React from "react";
+import React from 'react';
 
-export default function Form() {
+
+
+export default function Form(props) {
+
+  const handleChange = (event) => {
+    props.setText(event.target.value)
+  }
+
+  const submitHandler = (event) => {
+    event.preventDefault();
+    props.setListItem([
+      ...props.listItem,
+    {
+      listItemText : props.text,
+      completed : false,
+      id : Math.random()*1000
+    }])
+    props.setText('');
+  }
+
+
   return (
-    <div>
-      <form>
-        <input type="text" className="todo-input" />
-        <button className="todo-button" type="submit">
+      <form name="todo-form">
+        <input type="text" className="todo-input" value={props.text} onChange={handleChange}/>
+        <button onClick={submitHandler} className="todo-button" type="submit" >
           <i className="fas fa-plus-square"></i>
         </button>
         <div className="select">
@@ -16,6 +35,5 @@ export default function Form() {
           </select>
         </div>
       </form>
-    </div>
   );
 }
