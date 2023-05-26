@@ -5,26 +5,26 @@ import React from 'react';
 export default function Form(props) {
 
   const handleChange = (event) => {
-    props.setText(event.target.value)
+    props.setInputText(event.target.value)
   }
 
-  const submitHandler = (event) => {
+  const addItem = (event) => {
     event.preventDefault();
     props.setListItem([
       ...props.listItem,
     {
-      listItemText : props.text,
+      text : props.inputText,
       completed : false,
       id : Math.random()*1000
     }])
-    props.setText('');
+    props.setInputText('');
   }
 
 
   return (
       <form name="todo-form">
-        <input type="text" className="todo-input" value={props.text} onChange={handleChange}/>
-        <button onClick={submitHandler} className="todo-button" type="submit" >
+        <input type="text" className="todo-input" value={props.inputText} onChange={handleChange}/>
+        <button onClick={addItem} className="todo-button" type="submit" >
           <i className="fas fa-plus-square"></i>
         </button>
         <div className="select">
