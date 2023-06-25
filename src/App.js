@@ -1,4 +1,3 @@
-import "./App.css";
 import Form from "./components/Form";
 import TodoList from "./components/TodoList";
 import { useState, useEffect } from "react";
